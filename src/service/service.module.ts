@@ -1,7 +1,10 @@
 import { Module } from '@nestjs/common';
-import { PersistanceModule } from '@persistance/persistance.module';
+import { TokenModule } from './token/token.module';
+
+const modules = [TokenModule];
 
 @Module({
-  imports: [PersistanceModule],
+  imports: [...modules],
+  exports: [...modules],
 })
 export class ServiceModule {}

@@ -1,11 +1,16 @@
+import { MikroORM } from '@mikro-orm/core';
+import { OnApplicationBootstrap } from '@nestjs/common';
 import { Module } from '@nestjs/common';
-import { ServiceModule } from '@service/service.module';
-import { ApiController } from './api.controller';
-import { ApiService } from './api.service';
+import { CoreModule } from './core/core.module';
+import { TokenModule } from './token/token.module';
 
 @Module({
-  imports: [ServiceModule],
-  controllers: [ApiController],
-  providers: [ApiService],
+  imports: [CoreModule, TokenModule],
 })
-export class AppModule {}
+export class ApiModule implements OnApplicationBootstrap {
+  constructor(private readonly mikroOrm: MikroORM) {}
+
+  async onApplicationBootstrap() {
+    await this.mikroOrm.getMigrator().up();
+  }
+}

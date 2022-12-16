@@ -1,7 +1,10 @@
 import { Module } from '@nestjs/common';
-import { DomainModule } from '@domain/domain.module';
+import { TokenRepository } from './token/token.repository';
+
+const repositories = [TokenRepository];
 
 @Module({
-  imports: [DomainModule],
+  providers: [...repositories],
+  exports: [...repositories],
 })
 export class PersistanceModule {}
