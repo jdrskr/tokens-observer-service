@@ -23,7 +23,8 @@
       "@domain": ["src/domain"],
       "@persistance/*": ["src/persistance/*"],
       "@service/*": ["src/service/*"],
-      "@service": ["src/service"]
+      "@service": ["src/service"],
+      "@shared/*": ["src/shared/*"]
     }
   }
 }
