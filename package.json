@@ -21,6 +21,7 @@
     "test:e2e": "jest --config ./test/jest-e2e.json"
   },
   "dependencies": {
+    "@hqoss/monads": "^0.5.0",
     "@mikro-orm/core": "^5.6.0",
     "@mikro-orm/nestjs": "^5.1.2",
     "@mikro-orm/postgresql": "^5.6.0",

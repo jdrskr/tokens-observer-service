@@ -2,6 +2,7 @@ import { ChainEnum, Token } from '@domain';
 import { Injectable } from '@nestjs/common';
 import { CommandBus, QueryBus } from '@nestjs/cqrs';
 import { CreateTokenCommand } from '@service/index';
+import { Result } from '@shared/typings/result';
 
 @Injectable()
 export class TokenService {
@@ -16,7 +17,7 @@ export class TokenService {
     address: string,
     chain: ChainEnum,
     updateContinuously = true,
-  ): Promise<Token> {
+  ): Promise<Result<Token>> {
     const command = new CreateTokenCommand(
       name,
       symbol,
